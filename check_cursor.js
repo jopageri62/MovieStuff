@@ -6,7 +6,7 @@ const TARGET_URL = 'https://in.bookmyshow.com/movies/national-capital-region-ncr
 const TEXT_TO_CHECK = 'Priya';
 const TARGET_SELECTOR = `text=${TEXT_TO_CHECK}`;
 
-async function sendNotification(currentCursor) {
+async function sendNotification() {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -45,7 +45,6 @@ async function run() {
       console.log(`Found "${TEXT_TO_CHECK}" on the page! Sending email notification...`);
       await sendNotification();
     } else {
-      await sendNotification();
       console.log(`"${TEXT_TO_CHECK}" is not present or visible yet. DONT CLICK THE LINK YET UNTIL THIS TEXT IS PRESENT IN THE BODY`);
     }
   } catch (error) {
