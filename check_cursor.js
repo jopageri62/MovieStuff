@@ -45,7 +45,8 @@ async function run() {
       console.log(`Found "${TEXT_TO_CHECK}" on the page! Sending email notification...`);
       await sendNotification();
     } else {
-      console.log(`"${TEXT_TO_CHECK}" is not present or visible yet.`);
+      await sendNotification();
+      console.log(`"${TEXT_TO_CHECK}" is not present or visible yet. DONT CLICK THE LINK YET UNTIL THIS TEXT IS PRESENT IN THE BODY`);
     }
   } catch (error) {
     console.error('Error during execution:', error.message);
